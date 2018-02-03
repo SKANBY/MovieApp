@@ -5,10 +5,10 @@ import './Movie.css';
 function Movie({title, poster, genres, synopsis}){
     return(
         <div className="Movie">
-            <div className="Movie__Columns">
-                <MoviePoster poster={poster} alt={title}/>
-            </div>
-            <div className="Movie__Columns">
+            <div className="Movie__Column">
+                <MoviePoster poster={poster} alt={title} />
+            </div>   
+            <div className="Movie__Column">
                 <h1>{title}</h1>
                 <div className="Movie__Genres">
                     {genres.map((genre, index) => <MovieGenre genre={genre} key={index} />)}
@@ -29,7 +29,7 @@ function MoviePoster({poster, alt}){
 
 function MovieGenre({genre}){
     return (
-        <span className="Movie_Genre">{genre} </span>
+        <span className="Movie__Genre">{genre} </span>
     )
 }
 
