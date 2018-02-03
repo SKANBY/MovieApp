@@ -8,9 +8,12 @@ class App extends Component {
   // Update: componentWillReceiveProps() -> shouldComponentUpdate() -> componentWillUpdate() -> render() -> componentDidUpdate()
 
   state = {}
-  
+
   componentDidMount(){
     fetch('https://yts.am/api/v2/list_movies.json?sort_by=rating')
+    .then(trans => trans.json())
+    .then(json => console.log(json))
+    .catch(err => console.log(err))
   }
 
   _renderMovies = () => {
