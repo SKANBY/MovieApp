@@ -4,25 +4,13 @@ import Movie from './Movie';
 
 
 class App extends Component {
+  // Render: componentWillMount() -> render() -> componentDidMount()
+  // Update: componentWillReceiveProps() -> shouldComponentUpdate() -> componentWillUpdate() -> render() -> componentDidUpdate()
 
-  state = {
-  }
-
+  state = {}
+  
   componentDidMount(){
-    setTimeout(() => {
-      this.setState({
-        movies: [
-          {
-            title: "신과 함께",
-            poster: "http://img.movist.com/?img=/x00/04/78/00_p1.jpg"
-          },
-          {
-            title: "염력",
-            poster: "https://upload.wikimedia.org/wikipedia/ko/thumb/b/b2/%EC%98%81%ED%99%94_%EC%97%BC%EB%A0%A5.jpg/250px-%EC%98%81%ED%99%94_%EC%97%BC%EB%A0%A5.jpg"
-          }
-        ]
-      })
-    }, 5000)
+    fetch('https://yts.am/api/v2/list_movies.json?sort_by=rating')
   }
 
   _renderMovies = () => {
